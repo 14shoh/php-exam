@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+
+</head>
+<body>
+<form class="form-container" method="post" action="add.php">
+  <h2 class="form-header">Добавление студента</h2>
+  <label>Имя студента:</label>
+  <input type="text" name="first_name" class="form-input">
+  <label>Фамилия студента:</label>
+  <input type="text" name="last_name" class="form-input">
+  <label>Личный код:</label>
+  <input type="text" name="isikukood" class="form-input">
+  <label>Курс:</label>
+<input type="number" name="grade" class="form-input" min="1" max="5">
+
+
+  <label>Email:</label>
+  <input type="email" name="email" class="form-input">
+  <div class="form-buttons">
+    <button type="submit" name="submit" class="form-button">Запись</button>
+    <button type="button" name="cancel" class="form-button form-cancel">Отмена</button>
+  </div>
+  <div class="form-error"></div>
+</form>
+<form action="del.php" onsubmit="return confirm('Вы уверены?')">
+  <input type="submit" class="delete-button" value="Удалить все записи">
+</form>
+
+<form method="get" action="view.php">
+  <button type="submit" class="show-button">Показать данные</button>
+</form>
+
+	<script>
+
+  const form = document.querySelector('.form-container');
+  const cancelButton = form.querySelector('.form-cancel');
+  
+  // Добавляем обработчик клика на кнопку "Отмена"
+  cancelButton.addEventListener('click', function(event) {
+    // Останавливаем стандартное поведение формы (отправку данных на сервер)
+    event.preventDefault();
+    
+    // Очищаем значения всех полей формы
+    form.reset();
+  });
+</script>
+
+<style>
+/* Стили для основного контейнера формы */
+.form-container {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  background-color: #f9f9f9;
+  border-radius: 5px;
+}
+
+/* Стили для заголовка формы */
+.form-header {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+/* Стили для полей ввода формы */
+.form-input {
+  display: block;
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+/* Стили для кнопок формы */
+.form-button {
+  display: inline-block;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  color: #fff;
+  background-color: #4caf50;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+/* Стили для кнопки "Отмена" */
+.form-cancel {
+  background-color: #f44336;
+}
+
+/* Стили для сообщения об ошибке */
+.form-error {
+  color: #f00;
+  font-size: 14px;
+  margin-top: 5px;
+}
+.delete-button {
+  background-color: red;
+  color: white;
+  border: none;
+  padding: 10px;
+  font-size: 16px;
+}
+
+.show-button {
+  background-color: green;
+  color: white;
+  border: none;
+  padding: 10px;
+  font-size: 16px;
+}
+
+
+
+
+
+.delete-button {
+  background-color: red;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.show-button {
+  background-color: blue;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+	</style>
+</body>
+</html>
